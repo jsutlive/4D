@@ -3,4 +3,4 @@
 
 -Managers scene is current "master" scene (when loaded, scenes "Gameplay" and "UI" loaded additively)
 
--A little buggy
+-Rigidbodies currently constrained in y (up-down) direction
