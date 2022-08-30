@@ -19,13 +19,13 @@ public class ObjectMaterialChanger : MonoBehaviour, IChangeMaterial
     public void ChangeToMaterialA()
     {
         GetComponent<MeshRenderer>().material = materialA;
-        activated = true;
+        activated = false;
     }
 
     public void ChangeToMaterialB()
     {
         GetComponent<MeshRenderer>().material = materialB;
-        activated = false;
+        activated = true;
     }    
 
 }

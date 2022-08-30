@@ -18,16 +18,17 @@ public class PlayerMaterialChanger : MonoBehaviour, IChangeMaterial
 
     public void ChangeToMaterialB()
     {
+        if (GetComponent<PlayerController>() != null) return;      
         GetComponentInChildren<MeshRenderer>().material = cloneMaterial;
     }
 
     private void OnEnable()
     {
-        GameEvents.OnRewind += ChangeToMaterialA;
+        GameEvents.OnRewind += ChangeToMaterialB;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnRewind -= ChangeToMaterialA;
+        GameEvents.OnRewind -= ChangeToMaterialB;
     }
 }

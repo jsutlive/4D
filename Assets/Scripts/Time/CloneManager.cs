@@ -10,6 +10,8 @@ public class CloneManager : MonoBehaviour
     [SerializeField, Tooltip("Object to be created as a clone of this object")]
     GameObject cloneObject;
 
+    [SerializeField, Tooltip("Root transform to spawn clone")]
+    Transform cloneRoot;
 
     private void OnEnable()
     {
@@ -23,10 +25,6 @@ public class CloneManager : MonoBehaviour
 
     private void CreateClone()
     {
-        if (GetComponent<PlayerController>() != null)
-        {
-            Instantiate(cloneObject, transform.position, transform.rotation);
-        }
-        Destroy(GetComponent<PlayerController>());
+        Instantiate(cloneObject, cloneRoot.position, cloneRoot.rotation);
     }
 }

@@ -18,6 +18,18 @@ public class RewindController : MonoBehaviour
     int currentTimePointCount;
 
     public bool isRewinding = false;
+    public bool isMainPlayer = true;
+
+    private void Awake()
+    {
+        if(GetComponent<PlayerController>() == null)
+        {
+            isMainPlayer = false;
+            isRewinding = true;
+            timePoints = new List<TimePoint>(GameObject.Find("MainPlayer").GetComponent<RewindController>().timePoints);
+            currentTimePointCount = timePoints.Count;
+        }
+    }
 
     private void OnEnable()
     {
@@ -33,26 +45,31 @@ public class RewindController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isRewinding)
+        if (!isMainPlayer)
         {
-            // rewind time
-            RewindTimePoints();
-        }
-        else
-        {
-            // move forward in time automatically if this is a clone (i.e., no player control)
-            if (GetComponent<PlayerController>() == null)
+            if (isRewinding)
             {
+                // rewind time
+                RewindTimePoints();
+            }
+            else
+            {
+                // move forward in time automatically if this is a clone (i.e., no player control)    
                 if (currentTimePointCount < timePoints.Count)
                 {
                     SetTimePointForward(timePoints[currentTimePointCount]);
                     currentTimePointCount++;
                 }
                 else
-                    SetTimePointForward(new TimePoint(transform.position, new Vector3(0f, 0f, 0f)));
-            }
+                {
+                    SetTimePointForward(new TimePoint(rb.gameObject.transform.position, new Vector3(0f, 0f, 0f)));
+                }
+            }            
+        }
+        else 
+        {
             // record player's movement
-            else RecordTimePoints();
+            RecordTimePoints();
         }
     }
 
@@ -72,31 +89,33 @@ public class RewindController : MonoBehaviour
     private void RecordTimePoints()
     {
         if (timePoints.Count >= timePointsCount) timePoints.RemoveAt(0);
-        timePoints.Add(new TimePoint(transform.position, rb.velocity));
+        timePoints.Add(new TimePoint(rb.gameObject.transform.position, rb.velocity));
         currentTimePointCount = timePoints.Count;
     }
     
     // Move this object backwards based on time point
     private void SetTimePointReverse(TimePoint timePoint)
     {
-        transform.position = timePoint.position;
+        rb.gameObject.transform.position = timePoint.position;
         rb.velocity = -1f * timePoint.velocity;
     }
 
     //move this object forwards based on time point
     private void SetTimePointForward(TimePoint timePoint)
     {
-        transform.position = timePoint.position;
+        rb.gameObject.transform.position = timePoint.position;
         rb.velocity = timePoint.velocity;
     }
 
     private void RewindTime()
     {
+        GetComponentInChildren<SphereCollider>().enabled = false;
         isRewinding = true;
     }   
 
     private void StopRewinding()
     {
+        GetComponentInChildren<SphereCollider>().enabled = true;
         isRewinding = false;
     }
 }
