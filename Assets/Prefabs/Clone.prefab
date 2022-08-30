@@ -235,11 +235,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 789493639108593735}
-  - component: {fileID: 789493639108593733}
   - component: {fileID: 4315287017777949354}
+  - component: {fileID: 6500716206638994075}
   m_Layer: 0
   m_Name: Clone
-  m_TagString: Player
+  m_TagString: Clone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,22 +259,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &789493639108593733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789493639108593728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21cb525e6446fe84e85c362ac0ba7f7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timePoints: []
-  rb: {fileID: 789493638491531460}
-  isRewinding: 0
-  isMainPlayer: 1
 --- !u!114 &4315287017777949354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,3 +271,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db77206d52630d46a9705ee6f723104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6500716206638994075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789493639108593728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18274c5b386dd2c4eb4d8ad8054cc7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timePoints: []
+  rb: {fileID: 789493638491531460}

@@ -236,9 +236,8 @@ GameObject:
   m_Component:
   - component: {fileID: 789493639108593735}
   - component: {fileID: 789493639108593734}
-  - component: {fileID: 789493639108593733}
-  - component: {fileID: 4315287017777949354}
   - component: {fileID: 6711489568613411718}
+  - component: {fileID: 6853157058032053415}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -276,34 +275,7 @@ MonoBehaviour:
   rb: {fileID: 789493638491531460}
   maxSpeed: 10
   maxAcceleration: 10
-  rewindController: {fileID: 789493639108593733}
---- !u!114 &789493639108593733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789493639108593728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21cb525e6446fe84e85c362ac0ba7f7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timePoints: []
-  rb: {fileID: 789493638491531460}
-  isRewinding: 0
---- !u!114 &4315287017777949354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789493639108593728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1db77206d52630d46a9705ee6f723104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  rewindController: {fileID: 0}
 --- !u!114 &6711489568613411718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,3 +290,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloneObject: {fileID: 789493639108593728, guid: bd3eee42a9bc824438f3eb95cf64dc47, type: 3}
   cloneRoot: {fileID: 789493638491531464}
+--- !u!114 &6853157058032053415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789493639108593728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a307270e5116a1e489335e18e5e8eb3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timePoints: []
+  rb: {fileID: 789493638491531460}
